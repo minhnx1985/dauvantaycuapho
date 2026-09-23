@@ -1,71 +1,45 @@
 # COMPLETION REPORT
 
 ## STATUS
-PARTIAL
+COMPLETE
 
-The landing page is implemented and passes the required build and browser QA. The status remains `PARTIAL` because verified cover images for the additional books were not available; the supplied portraits for the two event speakers are now used in the interface.
+## CHANGED
+- Architecture: reordered the static landing page as header, hero, temporary event strip, book idea, inside-the-book evidence, sample, reading method, author, other books, event, final product CTA, and footer.
+- Copy: replaced abstract positioning with concrete places, book sections, chapter titles, author facts, event facts, and the supplied sample description.
+- Typography: body text now uses a readable Georgia stack; the mono stack is reserved for metadata, labels, captions, navigation, and prices. Fraunces remains the heading family.
+- Imagery: hero now combines the cover and a supplied sample page; the inside section uses real table-of-contents, foreword, and sketch renders; poster and event portrait derivatives reduce below-fold payload.
+- Event strip: added a small pre-event strip that hides after `2026-10-03T10:30:00+07:00`.
+- Sample section: moved immediately after the inside section with the supplied PDF and page renders.
+- Author/books section: replaced generic bio language and pseudo-covers with a concise fact-led bio and a text bibliography linking to Nhã Nam.
+- Final CTA: product-led title, author, format, publisher, price, purchase link, and sample link.
+- SEO/accessibility: added canonical, concrete description, OG URL, Book offers JSON-LD, image dimensions, alt text, focus states, responsive menu semantics, and reduced-motion support.
 
-## IMPLEMENTATION SUMMARY
-- Stack: Vite 7, semantic HTML, custom CSS, and lightweight vanilla JavaScript.
-- Architecture: single-page editorial site in `index.html`, presentation in `styles.css`, navigation behavior in `main.js`, and static media in `public/assets/`.
-- Key visual approach: responsive print-editorial composition using paper, ink, rust, blue, and olive colors; large Vietnamese serif typography; supplied book, page, author, and event imagery; reduced-motion support.
-- Key conversion path: repeated purchase links to the verified Nhã Nam product page plus repeated links to the supplied sample PDF.
+## REMOVED
+- Marquee keyword strip.
+- “Vì sao nên đọc cuốn sách này?” template section.
+- Typographic pseudo-cover blocks and their internal explanation.
+- Repeated explanatory “fingerprint” language; the term is retained only in the book title and one editorial sentence.
+- Generic closing slogans and symmetry-heavy “Để...” copy.
+- `promo-square.jpg` as editorial content imagery.
 
-## PURCHASE DESTINATION
-- URL: `https://nhanam.vn/dau-van-tay-cua-pho`
-- Browser verification result: verified on 2026-09-23; the product page listed the title and author, availability as “Còn hàng”, Nhà xuất bản Hà Nội, 14 x 20.5 cm, and 376 pages.
-- CTA labels: “Mua sách”, “Mua sách tại Nhã Nam”.
+## FACTS / ISSUES REQUIRING HUMAN CONFIRMATION
+- No unresolved fact conflict found during this implementation. Availability is included in JSON-LD based on the product-page verification recorded in `SOURCE_MANIFEST.md` on 2026-09-23.
+- Additional-book entries are text-only links because exact cover assets were not verified; no cover artwork was invented.
 
-## ASSETS USED
-- Bundled assets: `cover-front.jpg`, `book-mockup-square.jpg`, `promo-square.jpg`, `author-portrait.jpg`, `dieu-thuy.jpg`, `tran-ngoc-hieu.jpg`, `book-launch-poster.png`, `toc-01.png`, `part-01-opener.png`, `foreword-01.png`, and `sample-illustration-01.png`.
-- Speaker portraits: supplied local portraits are used for Nguyễn Hoàng Diệu Thủy and TS. Trần Ngọc Hiếu; the author portrait is used for Nguyễn Trương Quý.
-- External book covers: none. The additional-book shelf uses typographic editorial cover treatments.
-- Sample PDF usage: supplied `read-sample.pdf`, linked from the hero, sample section, and final CTA; it opens in a new browser context.
-
-## SOURCED EXTERNAL ASSETS
-No external image assets are fetched by the page. The two newly added speaker portraits were supplied locally in the workspace. External URLs are limited to the verified Nhã Nam product destination and publisher discovery link documented in `SOURCE_MANIFEST.md`.
-
-## SECTIONS IMPLEMENTED
-- Sticky masthead and responsive mobile navigation.
-- Book hero with purchase and sample-reading actions.
-- Editorial premise and Hanoi city-feature section.
-- Two-part table of contents.
-- Four reading reasons.
-- Author profile and portrait.
-- Additional-books shelf.
-- Book-launch event with poster, schedule, venue, and three speakers.
-- Sample-reading panel.
-- Final purchase CTA and footer.
-- Metadata, Open Graph data, and Book JSON-LD.
-
-## EVENT IMPLEMENTATION
-- Poster usage: supplied `book-launch-poster.png` is displayed in the event section.
-- Speakers shown: Nguyễn Trương Quý, Nguyễn Hoàng Diệu Thủy, and TS. Trần Ngọc Hiếu.
-- Event details: “Mở về ánh sáng Kinh Kỳ”, 09:00-10:30 on 03/10/2026, Sân khấu Hội Sách Hà Nội, số 2 Lê Thái Tổ, phường Hoàn Kiếm. Details were transcribed from the supplied event material.
-
-## TESTS
+## QA
 - Build: PASS, `npm run build` with Vite 7.3.6.
-- Lint: not configured; the project has no lint script.
 - Browser QA: PASS, `npm run qa` using Playwright Chromium.
-- Responsive QA: PASS at 360x800, 390x844, 768x1024, 1024x768, and 1440x1000.
-- PDF QA: PASS; `/assets/read-sample.pdf` returned HTTP 200 with `application/pdf`, and the PDF link opened a popup/new browser context.
-- CTA QA: PASS; at least two links target the verified Nhã Nam product URL.
-- Event QA: PASS; all three expected speaker entries are present.
+- Viewports: PASS at 360×800, 390×844, 430×932, 768×1024, 1024×768, and 1440×1000.
+- Responsive: no horizontal overflow; interior page gallery remains visible on mobile; mobile menu opens with the correct `aria-expanded` state.
+- Content: PASS for H1, product URL, 350.000đ, event details, three speakers, removed marquee/why/pseudo-cover markers, and reduced copy patterns.
+- Images: no broken images; hero is not lazy-loaded; below-fold images use lazy loading and explicit dimensions.
+- PDF: PASS; `/assets/read-sample.pdf` returned HTTP 200 with `application/pdf` and opened in a new browser context.
+- CTA: PASS; purchase links target `https://nhanam.vn/dau-van-tay-cua-pho`.
 - Console: PASS; no browser console errors or uncaught page errors.
-- Visual review: PASS for the generated 390x844 mobile and 1440x1000 desktop full-page captures; no visible clipping, incoherent overlap, or broken imagery was found.
 
-## SCREENSHOTS
-- Mobile: `qa/screenshots/360x800.png`, `qa/screenshots/390x844.png`.
-- Tablet: `qa/screenshots/768x1024.png`.
-- Desktop: `qa/screenshots/1024x768.png`, `qa/screenshots/1440x1000.png`.
-
-## UNRESOLVED NON-BLOCKERS
-- Exact source matches for the additional-book cover artwork were not verified. The shelf therefore uses typographic representations and explicitly identifies them as such.
+## ASSETS
+- Added web derivatives: `public/assets/dieu-thuy-web.jpg` and `public/assets/book-launch-poster-web.jpg`; originals remain untouched.
+- Supplied local portraits remain the source of truth for all three event participants.
 
 ## GIT
-- Branch: `main`.
-- Final commit: recorded in Git after adding supplied speaker portraits.
-- Push status: pushed to `origin/main` after validation.
-
-## LOCAL REVIEW
-- Development server: `http://127.0.0.1:5173/` (HTTP 200 verified on 2026-09-23).
+- Working tree was reviewed before commit. An unrelated pre-existing untracked file, `Logo_Nhã_Nam.jpg`, was left untouched.

@@ -11,7 +11,9 @@
 - `toc-01.png`, `part-01-opener.png`, `foreword-01.png`, `sample-illustration-01.png`: supplied sample-page renders.
 - `read-sample.pdf`: supplied PDF, linked in the sample section.
 - `dieu-thuy.jpg`: supplied portrait of Nguyễn Hoàng Diệu Thủy, copied from `Nguyen Hoang Dieu Thy (anh The Thao Van Hoa).webp`.
+- `dieu-thuy-web.jpg`: 666 × 1000 JPEG derivative for the circular event portrait; original preserved.
 - `tran-ngoc-hieu.jpg`: supplied portrait of TS. Trần Ngọc Hiếu, copied from `Tran Ngoc HIeu (Zing).jpg`.
+- `book-launch-poster-web.jpg`: 1400 × 787 JPEG derivative for the event section; supplied PNG original preserved.
 
 ## External source verification
 - Purchase/product destination: `https://nhanam.vn/dau-van-tay-cua-pho` — verified 2026-09-23. Page title, author, “Còn hàng” status, Nhà xuất bản Hà Nội, 14 x 20.5 cm, and 376 pages were present.

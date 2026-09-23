@@ -10,3 +10,9 @@ nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () =
   menu?.setAttribute('aria-expanded', 'false');
   if (menu) menu.textContent = 'Mở menu';
 }));
+
+const eventStrip = document.querySelector('.event-strip');
+if (eventStrip) {
+  const end = Date.parse(eventStrip.dataset.eventEnd ?? '');
+  if (Number.isFinite(end) && Date.now() >= end) eventStrip.hidden = true;
+}
