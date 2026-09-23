@@ -12,6 +12,7 @@ page.on('pageerror', (error) => errors.push(`page: ${error.message}`));
 await page.goto('http://127.0.0.1:5173/', { waitUntil: 'networkidle' });
 await page.locator('h1').waitFor();
 
+if (await page.locator('script[src*="speed-insights/script"]').count() !== 1) throw new Error('Vercel Speed Insights is not loaded exactly once');
 if (!(await page.locator('h1').innerText()).includes('Dấu vân tay của phố')) throw new Error('Hero title missing');
 if (await page.locator('#event .speaker').count() !== 3) throw new Error('Event speaker count is not 3');
 if (await page.locator('a[href="https://nhanam.vn/dau-van-tay-cua-pho"]').count() < 2) throw new Error('Purchase CTA missing');

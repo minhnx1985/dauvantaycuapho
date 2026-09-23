@@ -1,3 +1,7 @@
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
+injectSpeedInsights();
+
 const menu = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
 menu?.addEventListener('click', () => {
