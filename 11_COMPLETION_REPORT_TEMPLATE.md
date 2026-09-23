@@ -3,7 +3,7 @@
 ## STATUS
 PARTIAL
 
-The landing page is implemented and passes the required build and browser QA. The status is `PARTIAL` only because trustworthy portraits for two event speakers and verified cover images for the additional books were not available; the interface uses typographic treatments instead of unverified imagery.
+The landing page is implemented and passes the required build and browser QA. The status remains `PARTIAL` because verified cover images for the additional books were not available; the supplied portraits for the two event speakers are now used in the interface.
 
 ## IMPLEMENTATION SUMMARY
 - Stack: Vite 7, semantic HTML, custom CSS, and lightweight vanilla JavaScript.
@@ -17,13 +17,13 @@ The landing page is implemented and passes the required build and browser QA. Th
 - CTA labels: “Mua sách”, “Mua sách tại Nhã Nam”.
 
 ## ASSETS USED
-- Bundled assets: `cover-front.jpg`, `book-mockup-square.jpg`, `promo-square.jpg`, `author-portrait.jpg`, `book-launch-poster.png`, `toc-01.png`, `part-01-opener.png`, `foreword-01.png`, and `sample-illustration-01.png`.
-- External portraits: none. The supplied author portrait is used for Nguyễn Trương Quý; the other two speakers use initials-based identity markers.
+- Bundled assets: `cover-front.jpg`, `book-mockup-square.jpg`, `promo-square.jpg`, `author-portrait.jpg`, `dieu-thuy.jpg`, `tran-ngoc-hieu.jpg`, `book-launch-poster.png`, `toc-01.png`, `part-01-opener.png`, `foreword-01.png`, and `sample-illustration-01.png`.
+- Speaker portraits: supplied local portraits are used for Nguyễn Hoàng Diệu Thủy and TS. Trần Ngọc Hiếu; the author portrait is used for Nguyễn Trương Quý.
 - External book covers: none. The additional-book shelf uses typographic editorial cover treatments.
 - Sample PDF usage: supplied `read-sample.pdf`, linked from the hero, sample section, and final CTA; it opens in a new browser context.
 
 ## SOURCED EXTERNAL ASSETS
-No external image assets are used. External URLs are limited to the verified Nhã Nam product destination and publisher discovery link documented in `SOURCE_MANIFEST.md`.
+No external image assets are fetched by the page. The two newly added speaker portraits were supplied locally in the workspace. External URLs are limited to the verified Nhã Nam product destination and publisher discovery link documented in `SOURCE_MANIFEST.md`.
 
 ## SECTIONS IMPLEMENTED
 - Sticky masthead and responsive mobile navigation.
@@ -60,13 +60,12 @@ No external image assets are used. External URLs are limited to the verified Nh�
 - Desktop: `qa/screenshots/1024x768.png`, `qa/screenshots/1440x1000.png`.
 
 ## UNRESOLVED NON-BLOCKERS
-- The suggested Nhã Nam author URL for Nguyễn Hoàng Diệu Thủy returned HTTP 404, and no trustworthy directly attributable portrait was found for her or TS. Trần Ngọc Hiếu. Their initials are used instead of unverified photographs.
 - Exact source matches for the additional-book cover artwork were not verified. The shelf therefore uses typographic representations and explicitly identifies them as such.
 
 ## GIT
-- Branch: not applicable; the workspace is not a Git repository.
-- Final commit: not applicable.
-- Push status: not applicable.
+- Branch: `main`.
+- Final commit: recorded in Git after adding supplied speaker portraits.
+- Push status: pushed to `origin/main` after validation.
 
 ## LOCAL REVIEW
 - Development server: `http://127.0.0.1:5173/` (HTTP 200 verified on 2026-09-23).
