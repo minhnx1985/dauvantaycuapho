@@ -10,8 +10,8 @@ COMPLETE
 - Imagery: hero now combines the cover and a supplied sample page; the inside section uses real table-of-contents, foreword, and sketch renders; poster and event portrait derivatives reduce below-fold payload.
 - Event strip: added a small pre-event strip that hides after `2026-10-03T10:30:00+07:00`.
 - Sample section: moved immediately after the inside section with the supplied PDF and page renders.
-- Author/books section: replaced generic bio language and pseudo-covers with a concise fact-led bio and a text bibliography linking to Nhã Nam.
-- Final CTA: product-led title, author, format, publisher, price, purchase link, and sample link.
+- Author/books section: replaced generic bio language with a concise fact-led bio and two supplied covers for “Hà Nội bảo thế là thường” and “Triệu dấu chân qua những cửa ô”.
+- Final CTA: product-led title, author, format, publisher, price, purchase link, sample link, and the actual book cover.
 - SEO/accessibility: added canonical, concrete description, OG URL, Book offers JSON-LD, image dimensions, alt text, focus states, responsive menu semantics, and reduced-motion support.
 
 ## REMOVED
@@ -24,7 +24,7 @@ COMPLETE
 
 ## FACTS / ISSUES REQUIRING HUMAN CONFIRMATION
 - No unresolved fact conflict found during this implementation. Availability is included in JSON-LD based on the product-page verification recorded in `SOURCE_MANIFEST.md` on 2026-09-23.
-- Additional-book entries are text-only links because exact cover assets were not verified; no cover artwork was invented.
+- The other-books shelf intentionally contains only the two supplied, verified cover assets requested for this section.
 
 ## QA
 - Build: PASS, `npm run build` with Vite 7.3.6.

@@ -5,7 +5,8 @@
 - `/public/assets/`: local copies of all supplied source assets from `/source-assets/`.
 
 ## Bundled assets
-- `cover-front.jpg`, `book-mockup-square.jpg`, `promo-square.jpg`: supplied visual assets used for the hero, final CTA, and city mood.
+- `cover-front.jpg`: supplied book cover used for the hero, final CTA, and social card metadata.
+- `book-mockup-square.jpg`, `promo-square.jpg`: supplied assets retained in the bundle but no longer used in the page UI.
 - `author-portrait.jpg`: supplied author portrait, used in circular frames.
 - `book-launch-poster.png`: supplied event poster.
 - `toc-01.png`, `part-01-opener.png`, `foreword-01.png`, `sample-illustration-01.png`: supplied sample-page renders.
@@ -23,4 +24,5 @@
 The event section uses the two speaker portraits supplied in the workspace. They are displayed as circular crops in the speaker cards and are not fetched from a remote URL.
 
 ## Other books
-The “Các sách khác” shelf uses typographic editorial covers rather than misattributed external cover images. This is intentional because exact cover/source matches could not be verified within the available source pass.
+- `ha-noi-bao-the-la-thuong.webp`: supplied cover for “Hà Nội bảo thế là thường”.
+- `trieu-dau-chan-qua-nhung-cua-o.webp`: supplied cover for “Triệu dấu chân qua những cửa ô”.

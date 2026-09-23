@@ -19,6 +19,9 @@ if (await page.locator('a[href="https://nhanam.vn/dau-van-tay-cua-pho"]').count(
 if (!(await page.locator('body').innerText()).includes('350.000đ')) throw new Error('Book price missing');
 if (await page.locator('.marquee, #why, .book-placeholder').count()) throw new Error('Removed template elements are still present');
 if (await page.locator('text=/Một chuyến du ngoạn|quen mà chưa bao giờ cũ|Mở một trang sách|trước khi đi xa/').count()) throw new Error('Removed marketing copy is still present');
+if (await page.locator('#books .book-list > a').count() !== 2) throw new Error('Other-books section must contain exactly two books');
+if (await page.locator('#books img[src*="ha-noi-bao-the-la-thuong"], #books img[src*="trieu-dau-chan-qua-nhung-cua-o"]').count() !== 2) throw new Error('Other-books covers are incomplete');
+if (await page.locator('.final-cta img[src*="book-mockup-square"]').count()) throw new Error('Final CTA still uses the mockup image');
 if (await page.locator('.page-gallery img').count() < 3) throw new Error('Interior page gallery is incomplete');
 if (await page.locator('.page-gallery img').first().isVisible() === false) throw new Error('Interior page preview is hidden');
 if (await page.locator('img[loading="lazy"]').count() < 8) throw new Error('Below-fold images are not lazy loaded');
