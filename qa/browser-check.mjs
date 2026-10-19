@@ -9,7 +9,7 @@ const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
 const errors = [];
 page.on('console', (message) => { if (message.type() === 'error') errors.push(`console: ${message.text()}`); });
 page.on('pageerror', (error) => errors.push(`page: ${error.message}`));
-await page.goto('http://127.0.0.1:5173/', { waitUntil: 'networkidle' });
+await page.goto('http://127.0.0.1:5173/', { waitUntil: 'domcontentloaded' });
 await page.locator('h1').waitFor();
 
 if (await page.locator('script[src*="speed-insights/script"]').count() !== 1) throw new Error('Vercel Speed Insights is not loaded exactly once');
@@ -20,6 +20,10 @@ if (!(await page.locator('body').innerText()).includes('350.000đ')) throw new E
 if (await page.locator('.marquee, #why, .book-placeholder').count()) throw new Error('Removed template elements are still present');
 if (await page.locator('text=/Một chuyến du ngoạn|quen mà chưa bao giờ cũ|Mở một trang sách|trước khi đi xa/').count()) throw new Error('Removed marketing copy is still present');
 if (await page.locator('#books .book-list > a').count() !== 2) throw new Error('Other-books section must contain exactly two books');
+if (await page.locator('#press .press-card').count() !== 4) throw new Error('Press section must contain exactly four articles');
+if (await page.locator('#press .press-card img').count() !== 4) throw new Error('Press article thumbnails are incomplete');
+await page.locator('#press').scrollIntoViewIfNeeded();
+await page.waitForFunction(() => [...document.querySelectorAll('#press img')].every((image) => image.complete && image.naturalWidth > 0));
 if (await page.locator('#books img[src*="ha-noi-bao-the-la-thuong"], #books img[src*="trieu-dau-chan-qua-nhung-cua-o"]').count() !== 2) throw new Error('Other-books covers are incomplete');
 if (await page.locator('.final-cta img[src*="book-mockup-square"]').count()) throw new Error('Final CTA still uses the mockup image');
 if (await page.locator('.page-gallery img').count() < 3) throw new Error('Interior page gallery is incomplete');
